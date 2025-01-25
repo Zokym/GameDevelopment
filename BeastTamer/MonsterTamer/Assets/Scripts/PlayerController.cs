@@ -1,9 +1,15 @@
+using System;
 using System.Collections;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     public float speed;
+    public LayerMask solidObjectLayer;
+    public float overLapDistance = 0.2f;
+    public LayerMask grassLayer;
+
 
     private bool isMoving;
     private Vector2 input;
@@ -33,7 +39,10 @@ public class PlayerController : MonoBehaviour
                 targetpos.x += input.x;
                 targetpos.y += input.y;
 
-                StartCoroutine(Move(targetpos));
+                if (IsWalkable(targetpos))
+                {
+                    StartCoroutine(Move(targetpos));
+                }
             }
         }
         animator.SetBool("isMoving", isMoving);
@@ -49,5 +58,26 @@ public class PlayerController : MonoBehaviour
         }
         transform.position = targetPos;
         isMoving = false;
+        CheckForEncounters();
+    }
+
+    private void CheckForEncounters()
+    {
+        if (Physics2D.OverlapCircle(transform.position, overLapDistance, grassLayer) != null)
+        {
+            if (UnityEngine.Random.Range(1, 101) <= 10)
+            {
+                Debug.Log("Fighting ENcounter");
+            }
+        }
+    }
+
+    private bool IsWalkable(Vector3 targetPos)
+    {
+        if (Physics2D.OverlapCircle(targetPos, overLapDistance, solidObjectLayer) != null)
+        {
+            return false;
+        }
+        return true;
     }
 }

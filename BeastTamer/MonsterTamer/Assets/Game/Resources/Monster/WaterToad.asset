@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8022b42b4b5713e43b9ebfb8eecd7b7f, type: 3}
+  m_Name: WaterToad
+  m_EditorClassIdentifier: 
+  name: WaterToad
+  description: 
+  frontSprite: {fileID: 21300000, guid: 818cf159951cf9a4e8e810b2bbab4096, type: 3}
+  backSprite: {fileID: 21300000, guid: 18fc6e8e3f72b154fba88f358748be28, type: 3}
+  monsterType1: 3
+  monsterType2: 0
+  maxHP: 50
+  attack: 42
+  speed: 60
+  defence: 70
+  spDefence: 46
+  spAttack: 65
+  learnableMoves:
+  - moveBase: {fileID: 11400000, guid: 90e0eef7fce4b56479c631e95c7ab2dd, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: f834e804ac19bcf4c8ad1b90dcb7e9b6, type: 2}
+    level: 1
+  - moveBase: {fileID: 11400000, guid: ceb481de860e3af419e12828e51afce3, type: 2}
+    level: 7
