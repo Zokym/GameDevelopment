@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   description: 
-  monsterType: 0
+  monsterType: 3
   power: 40
   accuracy: 100
   pp: 20

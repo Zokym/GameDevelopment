@@ -58,4 +58,30 @@ public class Monster
     {
         get { return Mathf.FloorToInt((MosterBase.Speed * Level) / 100f) + 5; }
     }
+
+    public bool TakeDamage(Move move, Monster attacker)
+    {
+        float modifiers = Random.Range(0.8f, 1f);
+        float a = (2 * attacker.Level + 10) / 250f;
+        float d = a * move.moveBase.Power * ((float)attacker.Attack / Defence) + 2;
+        int dmage = Mathf.FloorToInt(d * modifiers);
+
+        HP -= dmage;
+        if (HP <= 0)
+        {
+            HP = 0;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
+    public Move GetRandomMove()
+    {
+        int r = Random.Range(0,Moves.Count);
+        return Moves[r];
+    }
 }
